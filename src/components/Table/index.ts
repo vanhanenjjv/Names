@@ -1,7 +1,7 @@
 import DataTable from './Data';
-// import SkeletonTable from './Skeleton';
+import SkeletonTable from './Skeleton';
 import TableDefinition, { Column } from './table-definition';
 
 
-export { DataTable };
+export { DataTable, SkeletonTable };
 export type { TableDefinition, Column };
