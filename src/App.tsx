@@ -1,20 +1,15 @@
-import { Col, Row, Space, Typography } from 'antd';
-import { Layout } from 'antd';
 import React from 'react';
-import Count from './names/Count';
-import Search from './names/Search';
-import Table from './names/Table';
+
+import { Layout } from 'antd';
+
+import { Names } from './pages';
 
 
 const App: React.FC = () => {
   return (
-    <Layout style={{ height: '100%' }}>
-      <Layout.Content style={{ padding: '32px' }}>
-        <Space size="middle" align="center" direction="vertical" style={{ width: '100%' }}>
-            <Count />
-            <Search />
-            <Table />  
-        </Space>
+    <Layout style={{ height: '100%' }}>
+      <Layout.Content style={{ margin: 16, justifyContent: 'center' }}>
+        <Names />
       </Layout.Content>
     </Layout>
   );

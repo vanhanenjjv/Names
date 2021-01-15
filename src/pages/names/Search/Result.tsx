@@ -2,7 +2,7 @@ import React from "react";
 
 import { Empty, List, Typography } from "antd";
 
-import Name from "../name";
+import { Name } from '../api';
 
 
 interface ResultProps {
