@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Empty, List, Typography } from 'antd';
+import { List } from 'antd';
 
 import { Name } from '../api';
 import { WordCloud } from '@ant-design/charts';
