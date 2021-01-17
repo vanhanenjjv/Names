@@ -1,19 +1,19 @@
 import React from 'react';
 
-import { Card, Space } from "antd";
+import { Card, Space } from 'antd';
 
-import { withSuspense } from "../../../suspense";
-import names, { Name } from '../api';
+import { SuspenseProps, withSuspense } from '../../../suspense';
+import names, { Name } from '../api';
 
 import Input from './Input';
 import Result from './Result';
+import debounce from '../../../debounce';
+import { WordCloud } from '@ant-design/charts';
 
 
-interface SearchProps {
-  loading?: boolean;
-}
+type SearchProps = SuspenseProps;
 
-const Search: React.FC<SearchProps> = ({ loading }) => {
+const Search: React.FC<SearchProps> = ({ suspended }) => {
   const [filter, setFilter] = React.useState('');
 
   const match = React.useCallback(
@@ -29,16 +29,16 @@ const Search: React.FC<SearchProps> = ({ loading }) => {
       }
 
       return matches;
-    }, 
+    },
     [filter]
   );
 
   return (
     <Card style={{ width: '100%', height: '100%' }}>
-      <Space size="large" direction="vertical">
-        <Input onChange={setFilter} disabled={loading ?? true} />
-        {loading 
-          ? <p>Loading...</p>
+      <Space style={{ width: '100%' }} size="large" direction="vertical">
+        <Input onChange={debounce(setFilter, 250)} disabled={suspended} />
+        {suspended
+          ? <WordCloud loading data={[]} wordField="name" weightField="amount" />
           : <Result names={match()} />}
       </Space>
     </Card>
@@ -46,8 +46,4 @@ const Search: React.FC<SearchProps> = ({ loading }) => {
 };
 
 
-export default withSuspense({
-  Component: () => <Search loading={false} />,
-  Fallback:  () => <Search loading />
-});
-
+export default withSuspense(Search);

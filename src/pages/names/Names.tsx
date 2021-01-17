@@ -15,7 +15,7 @@ interface NamesInnerComponents {
 
 const Names: React.FC & NamesInnerComponents = () => {
   return (
-    <Row style={{ height: '100%' }} gutter={[16, 16]}>
+    <Row style={{  }} gutter={[16, 16]}>
       <Col xs={24} sm={12} style={{}}><Count /></Col>
       <Col xs={24} sm={12} style={{}}><Search /></Col>
       <Col xs={24} sm={24}><Table /></Col>

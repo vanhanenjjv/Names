@@ -1,3 +1,4 @@
+import React from 'react';
 import { Input as AntdInput } from 'antd';
 
 
@@ -7,13 +8,13 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = ({ onChange, disabled }) => {
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => onChange(event.target.value);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => onChange(event.target.value);
 
   return (
     <AntdInput
       disabled={disabled}
       onChange={handleChange}
-      style={{ width: '100%' }}
+      style={{ width: '100%' }}
       placeholder="Search by name" />
   );
 };

@@ -1,11 +1,11 @@
-import withSuspense from './withSuspense';
+import withSuspense, { SuspenseProps } from './withSuspense';
 import wrapPromise from './wrapPromise';
 import Resource from './resource';
 
 
 export {
   withSuspense,
-  wrapPromise,
+  wrapPromise
 };
 
-export type { Resource };
+export type { Resource, SuspenseProps };
