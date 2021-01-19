@@ -15,7 +15,7 @@ const Names: React.FC = () => {
 
   return (
     <React.Fragment>
-      <Header />
+      <Header hasSubtitle={screens.md ? true : false} />
       <Tabs tabPosition={screens.md ? 'left' : 'top'}>
         <TabPane tab="Count" key="1">
           <Count colSpan={screens.md ? undefined : 24} />

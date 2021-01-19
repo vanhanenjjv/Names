@@ -4,11 +4,15 @@ import { GithubOutlined } from '@ant-design/icons';
 import { Button, PageHeader } from 'antd';
 
 
-const Header: React.FC = () => (
+interface HeaderProps {
+  hasSubtitle: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ hasSubtitle }) => (
   <PageHeader
     ghost={true}
     title="Names"
-    subTitle="Solita Dev Academy 2021"
+    subTitle={hasSubtitle ? 'Solita Dev Academy 2021' : null}
     extra={[
       <Button
         key="GitHub"

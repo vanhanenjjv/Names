@@ -13,11 +13,10 @@ const Input: React.FC<InputProps> = ({ onChange, disabled }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => onChange(event.target.value);
 
   return (
-    <Search
+    <AntdInput
       disabled={disabled}
       onChange={handleChange}
-      // width=""
-      style={{ width: 300 }}
+      style={{}}
       placeholder="Search by name" />
   );
 };

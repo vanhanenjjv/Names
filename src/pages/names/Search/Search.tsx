@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Space } from 'antd';
+import { Col, Row, Space } from 'antd';
 
 import { SuspenseProps, withSuspense } from '../../../suspense';
 import names, { Name } from '../api';
@@ -33,14 +33,17 @@ const Search: React.FC<SearchProps> = ({ suspended }) => {
   );
 
   return (
-    <Space
-      size="large"
-      direction="vertical"
-      align="center"
-      style={{ width: '100%' }}>
-      <Input onChange={debounce(setFilter, 250)} disabled={suspended} />
-      {!suspended && filter && <Result names={match()} />}
-    </Space>
+    <Row justify="center">
+      <Col flex="auto" />
+      <Col flex="500px">
+        <Space direction="vertical" style={{ width: '100%' }}>
+          <Input onChange={debounce(setFilter, 250)} disabled={suspended} />
+          {!suspended && filter && <Result names={match()} />}
+        </Space>
+      </Col>
+      <Col flex="auto" />
+    </Row>
+
   );
 };
 
