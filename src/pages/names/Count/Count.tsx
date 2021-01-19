@@ -33,7 +33,10 @@ const Count: React.FC<CountProps> = ({ suspended, colSpan }) => {
         <Col span={colSpan}>
           <Card>
             <WordCloud
-              style={colSpan ? undefined : { width: 300, height: 300 }}
+              style={{
+                width: colSpan ? undefined : 300,
+                height: 300
+              }}
               loading={suspended}
               data={suspended ? [] : names.read()}
               wordField="name"
