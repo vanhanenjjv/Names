@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, Col, Row, Statistic } from 'antd';
+import { Card, Col, Row, Spin, Statistic } from 'antd';
 import { WordCloud } from '@ant-design/charts';
 
 import { withSuspense, SuspenseProps } from '../../../suspense';
@@ -29,7 +29,8 @@ const Count: React.FC<CountProps> = ({ suspended }) => {
         <Col>
           <Card>
             <WordCloud
-              style={{ height: 400 }}
+              style={{  }}
+              loading={suspended}
               data={suspended ? [] : names.read()}
               wordField="name"
               weightField="amount"
