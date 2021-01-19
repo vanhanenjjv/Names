@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Grid, Layout, PageHeader, Space, Typography } from 'antd';
+import { Button, Grid, Layout, PageHeader, Typography } from 'antd';
 import { GithubOutlined } from '@ant-design/icons';
 
 import { Names } from './pages';
