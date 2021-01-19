@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, Divider, Space } from 'antd';
+import { Space } from 'antd';
 
 import { SuspenseProps, withSuspense } from '../../../suspense';
 import names, { Name } from '../api';
