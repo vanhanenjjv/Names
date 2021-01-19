@@ -33,7 +33,7 @@ const Search: React.FC<SearchProps> = ({ suspended }) => {
   );
 
   return (
-    <Space direction="vertical" size="large" style={{}}>
+    <Space direction="vertical" size="large" style={{ justifyContent: 'center' }}>
       <Input onChange={debounce(setFilter, 250)} disabled={suspended} />
       <Result names={suspended ? [] : match()} />
     </Space>

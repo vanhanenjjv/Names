@@ -16,7 +16,7 @@ const Count: React.FC<CountProps> = ({ suspended }) => {
       .reduce((a, b) => a + b), []);
 
   return (
-    <Space size="small" direction="vertical" style={{ width: '600px', height: '100%' }}>
+    <Space size="small" direction="vertical" style={{ width: '100%' }}>
       <Card>
         <Statistic
           title="Total amount of names"
@@ -25,6 +25,7 @@ const Count: React.FC<CountProps> = ({ suspended }) => {
       </Card>
       <Divider />
       <WordCloud
+        style={{ height: 400 }}
         data={suspended ? [] : names.read()}
         wordField="name"
         weightField="amount"

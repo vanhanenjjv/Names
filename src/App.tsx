@@ -12,24 +12,29 @@ const App: React.FC = () => {
   const screens = Grid.useBreakpoint();
 
   return (
-    <Layout style={{ display: 'grid', height: '100%', minHeight: '100%', justifyContent: 'center' }}>
-      <Layout.Content style={{ height: '100%', width: '100%', maxWidth: 960, padding: 16 }}>
-        <Space direction="vertical">
-          <PageHeader
-            ghost={true}
-            title="Names"
-            subTitle={screens.sm ? 'Solita Dev Academy 2021' : null}
-            extra={[
-              <Button
-                key="GitHub"
-                shape="circle"
-                size="large"
-                href="https://www.github.com/vanhanenjjv/names">
-                <GithubOutlined />
-              </Button>
-            ]} />
-          <Names />
-        </Space>
+    <Layout>
+      <Layout.Content style={{
+        height: '100%',
+        width: '100%',
+        alignSelf: 'center',
+        maxWidth: 960,
+        padding: 16
+      }}>
+        <PageHeader
+          ghost={true}
+          title="Names"
+          subTitle={screens.sm ? 'Solita Dev Academy 2021' : null}
+          extra={[
+            <Button
+              key="GitHub"
+              shape="circle"
+              size="large"
+              href="https://www.github.com/vanhanenjjv/names"
+              target="_blank">
+              <GithubOutlined />
+            </Button>
+          ]} />
+        <Names />
       </Layout.Content>
       <Layout.Footer style={{ textAlign: 'center' }}>
         <Text type="secondary">git commit</Text>
