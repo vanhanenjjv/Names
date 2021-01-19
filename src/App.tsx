@@ -7,7 +7,13 @@ import { Names } from './pages';
 
 const { Text } = Typography;
 
-const App: React.FC = () => {
+interface AppProps {
+  commitHash: string;
+}
+
+const App: React.FC<AppProps> = ({ commitHash }) => {
+  console.log(process.env);
+
   return (
     <Layout>
       <Layout.Content style={{
@@ -19,7 +25,7 @@ const App: React.FC = () => {
         <Names />
       </Layout.Content>
       <Layout.Footer style={{ textAlign: 'center' }}>
-        <Text type="secondary">git commit</Text>
+        <Text type="secondary">{commitHash}</Text>
       </Layout.Footer>
     </Layout>
   );
