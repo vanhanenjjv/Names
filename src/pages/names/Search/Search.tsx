@@ -1,14 +1,13 @@
 import React from 'react';
 
-import { Card, Space } from 'antd';
+import { Card, Divider, Space } from 'antd';
 
 import { SuspenseProps, withSuspense } from '../../../suspense';
 import names, { Name } from '../api';
+import debounce from '../../../debounce';
 
 import Input from './Input';
 import Result from './Result';
-import debounce from '../../../debounce';
-import { WordCloud } from '@ant-design/charts';
 
 
 type SearchProps = SuspenseProps;
@@ -34,14 +33,10 @@ const Search: React.FC<SearchProps> = ({ suspended }) => {
   );
 
   return (
-    <Card style={{ width: '100%', height: '100%' }}>
-      <Space style={{ width: '100%' }} size="large" direction="vertical">
-        <Input onChange={debounce(setFilter, 250)} disabled={suspended} />
-        {suspended
-          ? <WordCloud loading data={[]} wordField="name" weightField="amount" />
-          : <Result names={match()} />}
-      </Space>
-    </Card>
+    <Space direction="vertical" size="large" style={{}}>
+      <Input onChange={debounce(setFilter, 250)} disabled={suspended} />
+      <Result names={suspended ? [] : match()} />
+    </Space>
   );
 };
 

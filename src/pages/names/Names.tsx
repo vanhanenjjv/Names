@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { Col, Row  } from 'antd';
+import { Grid, Space, Tabs } from 'antd';
 
 import Count from './Count';
 import Search from './Search';
 import Table from './Table';
 
+
+const { TabPane } = Tabs;
 
 interface NamesInnerComponents {
   Count:  typeof Count,
@@ -14,12 +16,20 @@ interface NamesInnerComponents {
 }
 
 const Names: React.FC & NamesInnerComponents = () => {
+  const screens = Grid.useBreakpoint();
+
   return (
-    <Row style={{  }} gutter={[16, 16]}>
-      <Col xs={24} sm={12} style={{}}><Count /></Col>
-      <Col xs={24} sm={12} style={{}}><Search /></Col>
-      <Col xs={24} sm={24}><Table /></Col>
-    </Row>
+    <Tabs tabPosition={screens.md ? 'left' : 'top'}>
+      <TabPane tab="Count" key="1">
+        <Count />
+      </TabPane>
+      <TabPane tab="Search" key="2">
+        <Search />
+      </TabPane>
+      <TabPane tab="Table" key="3">
+        <Table />
+      </TabPane>
+    </Tabs>
   );
 };
 

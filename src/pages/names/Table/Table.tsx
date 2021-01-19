@@ -18,7 +18,6 @@ const Table: React.FC<TableProps> = ({ suspended }) => {
   return (
     <AntdTable
       tableLayout="fixed"
-      style={{ height: '100%' }}
       dataSource={suspended ? undefined : names.read()}
       columns={columns}
       rowKey={suspended ? undefined : record => record.name} />

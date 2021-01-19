@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, Statistic } from 'antd';
+import { Card, Divider, Space, Statistic } from 'antd';
 import { WordCloud } from '@ant-design/charts';
 
 import { withSuspense, SuspenseProps } from '../../../suspense';
@@ -16,18 +16,21 @@ const Count: React.FC<CountProps> = ({ suspended }) => {
       .reduce((a, b) => a + b), []);
 
   return (
-    <Card style={{ width: '100%', height: '100%' }}>
-      <Statistic
-        title="Total amount of names"
-        value={suspended ? undefined : sum()}
-        loading={suspended} />
+    <Space size="small" direction="vertical" style={{ width: '600px', height: '100%' }}>
+      <Card>
+        <Statistic
+          title="Total amount of names"
+          value={suspended ? undefined : sum()}
+          loading={suspended} />
+      </Card>
+      <Divider />
       <WordCloud
         data={suspended ? [] : names.read()}
         wordField="name"
         weightField="amount"
-        color="#122c6a"
-        wordStyle={{ fontFamily: 'Verdana', fontSize: [24, 80] }} />
-    </Card>
+        colorField="name"
+        wordStyle={{ fontFamily: 'Verdana', fontSize: [18, 64] }} />
+    </Space>
   );
 };
 

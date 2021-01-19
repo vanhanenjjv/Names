@@ -5,6 +5,7 @@
   "homepage": "https://vanhanenjjv.github.io/names",
   "dependencies": {
     "@ant-design/charts": "^1.0.13",
+    "@ant-design/icons": "^4.3.0",
     "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
