@@ -1,15 +1,19 @@
 import React from 'react';
 
-import { Card, Col, Row, Spin, Statistic } from 'antd';
+import { Card, Col, Grid, Row, Spin, Statistic } from 'antd';
 import { WordCloud } from '@ant-design/charts';
 
 import { withSuspense, SuspenseProps } from '../../../suspense';
 import names from '../api';
 
 
-type CountProps = SuspenseProps;
+type CountProps =
+  & SuspenseProps
+  & {
+    colSpan?: number;
+  };
 
-const Count: React.FC<CountProps> = ({ suspended }) => {
+const Count: React.FC<CountProps> = ({ suspended, colSpan }) => {
   const sum = React.useCallback(() =>
     names.read()
       .map(name => name.amount)
@@ -18,7 +22,7 @@ const Count: React.FC<CountProps> = ({ suspended }) => {
   return (
     <React.Fragment>
       <Row gutter={[16, 16]} justify="center">
-        <Col>
+        <Col span={colSpan}>
           <Card>
             <Statistic
               title="Total amount of names"
@@ -26,10 +30,10 @@ const Count: React.FC<CountProps> = ({ suspended }) => {
               loading={suspended} />
           </Card>
         </Col>
-        <Col>
+        <Col span={colSpan}>
           <Card>
             <WordCloud
-              style={{  }}
+              style={colSpan ? undefined : { width: 300, height: 300 }}
               loading={suspended}
               data={suspended ? [] : names.read()}
               wordField="name"

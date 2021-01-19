@@ -15,10 +15,10 @@ const Names: React.FC = () => {
 
   return (
     <React.Fragment>
-      <Header hasSubtitle={screens.sm ? true : false} />
+      <Header />
       <Tabs tabPosition={screens.md ? 'left' : 'top'}>
         <TabPane tab="Count" key="1">
-          <Count />
+          <Count colSpan={screens.md ? undefined : 24} />
         </TabPane>
         <TabPane tab="Search" key="2">
           <Search />
