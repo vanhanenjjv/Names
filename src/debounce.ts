@@ -6,7 +6,9 @@ function debounce<T>(action: Action<T>, timeout: number): Action<T> {
   return args => {
     if (id) clearInterval(id);
 
-    id = setTimeout(() => void action(args), timeout);
+    const callback = (): void => action(args);
+
+    id = setTimeout(callback, timeout);
   };
 }
 
