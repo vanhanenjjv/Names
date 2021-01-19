@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, Col, Grid, Row, Spin, Statistic } from 'antd';
+import { Card, Col, Row, Statistic } from 'antd';
 import { WordCloud } from '@ant-design/charts';
 
 import { withSuspense, SuspenseProps } from '../../../suspense';
