@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Grid, Tabs } from 'antd';
+import { Button, Grid, PageHeader, Tabs } from 'antd';
+import { GithubOutlined } from '@ant-design/icons';
 
 import Count from './Count';
 import Search from './Search';
@@ -9,33 +10,40 @@ import Table from './Table';
 
 const { TabPane } = Tabs;
 
-interface NamesInnerComponents {
-  Count:  typeof Count,
-  Search: typeof Search,
-  Table:  typeof Table
-}
-
-const Names: React.FC & NamesInnerComponents = () => {
+const Names: React.FC = () => {
   const screens = Grid.useBreakpoint();
 
   return (
-    <Tabs tabPosition={screens.md ? 'left' : 'top'}>
-      <TabPane tab="Count" key="1">
-        <Count />
-      </TabPane>
-      <TabPane tab="Search" key="2">
-        <Search />
-      </TabPane>
-      <TabPane tab="Table" key="3">
-        <Table />
-      </TabPane>
-    </Tabs>
+    <React.Fragment>
+      <PageHeader
+        ghost={true}
+        title="Names"
+        subTitle={screens.sm ? 'Solita Dev Academy 2021' : null}
+        extra={[
+          <Button
+            key="GitHub"
+            shape="circle"
+            size="large"
+            href="https://www.github.com/vanhanenjjv/names"
+            target="_blank">
+            <GithubOutlined />
+          </Button>
+        ]} />
+
+      <Tabs tabPosition={screens.md ? 'left' : 'top'}>
+        <TabPane tab="Count" key="1">
+          <Count />
+        </TabPane>
+        <TabPane tab="Search" key="2">
+          <Search />
+        </TabPane>
+        <TabPane tab="Table" key="3">
+          <Table />
+        </TabPane>
+      </Tabs>
+    </React.Fragment>
   );
 };
-
-Names.Count  = Count;
-Names.Search = Search;
-Names.Table  = Table;
 
 
 export default Names;

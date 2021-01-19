@@ -16,7 +16,7 @@ const Input: React.FC<InputProps> = ({ onChange, disabled }) => {
     <Search
       disabled={disabled}
       onChange={handleChange}
-      style={{ width: '100%' }}
+      style={{ width: '100%', maxWidth: 300 }}
       placeholder="Search by name" />
   );
 };
