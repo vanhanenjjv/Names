@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid, Space, Tabs } from 'antd';
+import { Grid, Tabs } from 'antd';
 
 import Count from './Count';
 import Search from './Search';
