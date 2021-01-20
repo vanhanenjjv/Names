@@ -1,4 +1,4 @@
-import Names from './names';
+import Names from './Names';
 
 
 export { Names };

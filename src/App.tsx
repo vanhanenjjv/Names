@@ -5,15 +5,17 @@ import { Layout, Typography } from 'antd';
 import { Names } from './pages';
 
 
-const { Text } = Typography;
-
-interface AppProps {
+interface GitHubInfo {
+  username: string;
+  repository:string;
   commitHash: string;
 }
 
-const App: React.FC<AppProps> = ({ commitHash }) => {
-  console.log(process.env);
+interface AppProps {
+  github: GitHubInfo;
+}
 
+const App: React.FC<AppProps> = ({ github }) => {
   return (
     <Layout>
       <Layout.Content style={{
@@ -25,7 +27,13 @@ const App: React.FC<AppProps> = ({ commitHash }) => {
         <Names />
       </Layout.Content>
       <Layout.Footer style={{ textAlign: 'center' }}>
-        <Text type="secondary">{commitHash}</Text>
+        <Typography.Link
+          type="secondary"
+          rel="noopener"
+          target="_blank"
+          href={`https://github.com/${github.username}/${github.repository}/commit/${github.commitHash}`}>
+          {github.commitHash}
+        </Typography.Link>
       </Layout.Footer>
     </Layout>
   );

@@ -8,12 +8,17 @@ import reportWebVitals from './reportWebVitals';
 
 import App from './App';
 
+// Webpack magic
+declare const COMMIT_HASH: string;
 
-declare const COMMIT_HASH: string; // Webpack magic
 
 ReactDOM.render(
   <React.StrictMode>
-    <App commitHash={COMMIT_HASH} />
+    <App github={{
+      username: 'vanhanenjjv',
+      repository: 'names',
+      commitHash: COMMIT_HASH
+    }} />
   </React.StrictMode>,
   document.getElementById('root')
 );

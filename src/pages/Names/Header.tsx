@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { GithubOutlined } from '@ant-design/icons';
-import { Button, PageHeader } from 'antd';
+import { Button, PageHeader, Typography } from 'antd';
 
 
 interface HeaderProps {
@@ -12,7 +12,14 @@ const Header: React.FC<HeaderProps> = ({ hasSubtitle }) => (
   <PageHeader
     ghost={true}
     title="Names"
-    subTitle={hasSubtitle ? 'Solita Dev Academy 2021' : null}
+    subTitle={
+      <Typography.Link
+        type="secondary"
+        href="https://github.com/solita/dev-academy-2021"
+        target="_blank">
+        {hasSubtitle ? 'Solita Dev Academy 2021' : null}
+      </Typography.Link>
+    }
     extra={[
       <Button
         key="GitHub"
