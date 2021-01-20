@@ -12,6 +12,7 @@ const Header: React.FC<HeaderProps> = ({ hasSubtitle }) => (
   <PageHeader
     ghost={true}
     title="Names"
+    style={{ paddingRight: 0 }}
     subTitle={
       <Typography.Link
         type="secondary"
