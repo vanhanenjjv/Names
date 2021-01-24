@@ -2,7 +2,7 @@
   "name": "names",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vanhanenjjv.github.io/names",
+  "homepage": "https://vanhanenjjv.github.io/Names",
   "dependencies": {
     "@ant-design/charts": "^1.0.13",
     "@ant-design/icons": "^4.3.0",
